@@ -1,0 +1,10 @@
+<resources>
+    <!--<string name="app_name">StoryTellerAndroid</string>-->
+    <!--<string name="BASE_URL">https://rynkbit.com:3000</string>-->
+    <string name="PREVIEW_PATH">/story/preview</string>
+    <string name="NAME_STORY_ID">_id</string>
+    <string name="NAME_STORY_TITLE">title</string>
+    <string name="NAME_STORY_DESCRIPTION">description</string>
+    <string name="ERROR_LOADING_PREVIEWS_TITLE">Error loading previews</string>
+    <string name="ERROR_LOADING_PREVIEWS_MESSAGE">Unable to load previews. Please try again later.</string>
+</resources>
