@@ -11,7 +11,7 @@ import java.util.List;
 
 import storyteller.rynkbit.com.storytellerandroid.R;
 import storyteller.rynkbit.com.storytellerandroid.entitiy.Story;
-import storyteller.rynkbit.com.storytellerandroid.net.PreviewLoaderListener;
+import storyteller.rynkbit.com.storytellerandroid.net.preview.PreviewLoaderListener;
 
 public class PreviewStoryAdapter extends RecyclerView.Adapter<PreviewStoryViewHolder> implements PreviewLoaderListener {
     private final List<Story> mStories = new ArrayList<>();

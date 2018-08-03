@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import storyteller.rynkbit.com.storytellerandroid.R;
-import storyteller.rynkbit.com.storytellerandroid.net.PreviewLoader;
+import storyteller.rynkbit.com.storytellerandroid.net.preview.PreviewLoader;
 
 public class PreviewStoryController {
     public static final int ERROR_LOADING_PREVIEWS = -1;

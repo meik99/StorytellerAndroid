@@ -1,6 +1,5 @@
 package storyteller.rynkbit.com.storytellerandroid;
 
-import android.app.Instrumentation;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
@@ -12,8 +11,8 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import storyteller.rynkbit.com.storytellerandroid.entitiy.Story;
-import storyteller.rynkbit.com.storytellerandroid.net.PreviewLoader;
-import storyteller.rynkbit.com.storytellerandroid.net.PreviewLoaderListener;
+import storyteller.rynkbit.com.storytellerandroid.net.preview.PreviewLoader;
+import storyteller.rynkbit.com.storytellerandroid.net.preview.PreviewLoaderListener;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
