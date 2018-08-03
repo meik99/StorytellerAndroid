@@ -16,6 +16,7 @@ public abstract class RESTLoader extends AsyncTask<Void, Void, Void> {
     private final String mNameStoryTitle;
     private final String mNameStoryDescription;
     private final String mNameStoryMessages;
+    private final String mNameAccessTokenValue;
 
     public RESTLoader(Context context){
         mBaseUrl = context.getString(R.string.BASE_URL);
@@ -23,10 +24,15 @@ public abstract class RESTLoader extends AsyncTask<Void, Void, Void> {
         mNameStoryTitle = context.getString(R.string.NAME_STORY_TITLE);
         mNameStoryDescription = context.getString(R.string.NAME_STORY_DESCRIPTION);
         mNameStoryMessages = context.getString(R.string.NAME_STORY_MESSAGES);
+        mNameAccessTokenValue = context.getString(R.string.NAME_ACCESS_TOKEN_VALUE);
 
         if(mRequestQueue == null){
             mRequestQueue = Volley.newRequestQueue(context);
         }
+    }
+
+    public String getNameAccessTokenValue() {
+        return mNameAccessTokenValue;
     }
 
     public static RequestQueue getRequestQueue() {
@@ -49,7 +55,7 @@ public abstract class RESTLoader extends AsyncTask<Void, Void, Void> {
         return mNameStoryDescription;
     }
 
-    public String getmNameStoryMessages() {
+    public String getNameStoryMessages() {
         return mNameStoryMessages;
     }
 }

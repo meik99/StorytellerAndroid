@@ -9,4 +9,5 @@
     <string name="ERROR_LOADING_PREVIEWS_MESSAGE">Unable to load previews. Please try again later.</string>
     <string name="NAME_STORY_MESSAGES">messages</string>
     <string name="FULL_STORY_PATH">/story/full</string>
+    <string name="NAME_ACCESS_TOKEN_VALUE">accessTokenValue</string>
 </resources>
