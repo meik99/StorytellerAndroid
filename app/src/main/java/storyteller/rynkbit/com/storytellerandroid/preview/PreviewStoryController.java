@@ -43,4 +43,8 @@ public class PreviewStoryController {
                     .show();
         }
     }
+
+    public void openStory(String storyId) {
+
+    }
 }

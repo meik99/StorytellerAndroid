@@ -32,12 +32,12 @@ android {
     }
     flavorDimensions "type"
     productFlavors {
-        develop{
+        develop {
             dimension "type"
             resValue("string", "BASE_URL", "http://192.168.178.31:3000")
             resValue("string", "app_name", "StoryTeller DEBUG")
         }
-        production{
+        production {
             dimension "type"
             resValue("string", "BASE_URL", "https://rynkbit.com:3000")
             resValue("string", "app_name", "StoryTeller")

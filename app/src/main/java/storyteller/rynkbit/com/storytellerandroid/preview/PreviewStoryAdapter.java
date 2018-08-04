@@ -31,7 +31,7 @@ public class PreviewStoryAdapter extends RecyclerView.Adapter<PreviewStoryViewHo
                         parent.getContext()
                 )
                 .inflate(
-                        R.layout.item_preview_storie,
+                        R.layout.item_preview_story,
                         parent,
                         false
                 );
@@ -41,7 +41,14 @@ public class PreviewStoryAdapter extends RecyclerView.Adapter<PreviewStoryViewHo
 
     @Override
     public void onBindViewHolder(@NonNull PreviewStoryViewHolder holder, int position) {
-        Story story = mStories.get(position);
+        final Story story = mStories.get(position);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPreviewStoryController.openStory(story.getId());
+            }
+        });
 
         holder
                 .setTitle(story.getTitle())
