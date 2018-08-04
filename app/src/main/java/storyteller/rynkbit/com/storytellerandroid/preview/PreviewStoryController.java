@@ -1,11 +1,13 @@
 package storyteller.rynkbit.com.storytellerandroid.preview;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import storyteller.rynkbit.com.storytellerandroid.R;
 import storyteller.rynkbit.com.storytellerandroid.net.preview.PreviewLoader;
+import storyteller.rynkbit.com.storytellerandroid.story.StoryActivity;
 
 public class PreviewStoryController {
     public static final int ERROR_LOADING_PREVIEWS = -1;
@@ -22,8 +24,9 @@ public class PreviewStoryController {
         PreviewStoryAdapter listPreviewAdapter = new PreviewStoryAdapter(this);
 
 
-        listPreviewStories.setLayoutManager(new LinearLayoutManager(
-                mActivity, LinearLayoutManager.VERTICAL, false));
+        listPreviewStories.setLayoutManager(
+                new LinearLayoutManager(
+                    mActivity, LinearLayoutManager.VERTICAL, false));
         listPreviewStories.setAdapter(listPreviewAdapter);
 
         previewLoader.addPreviewLoaderListener(listPreviewAdapter);
@@ -45,6 +48,8 @@ public class PreviewStoryController {
     }
 
     public void openStory(String storyId) {
-
+        Intent startStoryActivityIntent = new Intent(mActivity, StoryActivity.class);
+        startStoryActivityIntent.putExtra(StoryActivity.EXTRA_STORY_ID, storyId);
+        mActivity.startActivity(startStoryActivityIntent);
     }
 }
