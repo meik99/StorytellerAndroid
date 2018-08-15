@@ -5,16 +5,20 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import storyteller.rynkbit.com.storytellerandroid.R;
+import storyteller.rynkbit.com.storytellerandroid.net.story.StoryLoader;
 
 class StoryController {
     private final StoryActivity mStoryActivity;
     private final StoryModel mStoryModel;
+    private final StoryPlayer mStoryPlayer;
 
     public StoryController(StoryActivity storyActivity) {
         mStoryModel = new StoryModel();
+        mStoryPlayer = new StoryPlayer();
         mStoryActivity = storyActivity;
 
         getStoryIdFromIntent();
+        setupMessageList();
     }
 
     private void getStoryIdFromIntent() {
@@ -24,6 +28,16 @@ class StoryController {
             mStoryModel.setStoryId(
                     storyActivityIntent.getStringExtra(StoryActivity.EXTRA_STORY_ID)
             );
+
+            retrieveStory(mStoryModel.getStoryId());
+        }
+    }
+
+    private void retrieveStory(String storyId) {
+        if(storyId != null && storyId.isEmpty() == false){
+            StoryLoader loader = new StoryLoader(mStoryActivity, mStoryModel.getStoryId(), null);
+            loader.addStoryLoaderListener(mStoryPlayer);
+            loader.execute();
         }
     }
 
@@ -33,5 +47,6 @@ class StoryController {
         listStoryMessages.setLayoutManager(
                 new LinearLayoutManager(
                         mStoryActivity, LinearLayoutManager.VERTICAL, false));
+        listStoryMessages.setAdapter(new StoryMessageAdapter(mStoryPlayer));
     }
 }

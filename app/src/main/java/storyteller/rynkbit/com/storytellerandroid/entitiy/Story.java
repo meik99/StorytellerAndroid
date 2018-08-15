@@ -2,11 +2,11 @@ package storyteller.rynkbit.com.storytellerandroid.entitiy;
 
 import java.util.List;
 
-public class Story {
+public class Story{
     private String id;
     private String title;
     private String description;
-    private List<List<String>> messages;
+    private List<Message> messages;
 
     public Story() {
     }
@@ -46,11 +46,12 @@ public class Story {
         this.description = description;
     }
 
-    public List<List<String>> getMessages() {
+    public List<Message> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<List<String>> messages) {
+    public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
+
 }

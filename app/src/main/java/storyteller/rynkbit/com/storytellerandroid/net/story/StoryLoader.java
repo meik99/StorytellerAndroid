@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import storyteller.rynkbit.com.storytellerandroid.R;
+import storyteller.rynkbit.com.storytellerandroid.entitiy.Message;
 import storyteller.rynkbit.com.storytellerandroid.entitiy.Story;
 import storyteller.rynkbit.com.storytellerandroid.net.RESTLoader;
 
@@ -83,9 +84,10 @@ public class StoryLoader extends RESTLoader {
 
     private Story parseStoryFromStoryObject(JSONObject response) throws JSONException {
         Story result = new Story();
-        List<List<String>> messages = new LinkedList<>();
+        List<Message> messages = new LinkedList<>();
         JSONArray messageArray;
         JSONArray message;
+        List<String> sender = new LinkedList<>();
         
         result.setId(response.getString(getNameStoryId()));
         result.setTitle(response.getString(getNameStoryTitle()));
@@ -94,11 +96,23 @@ public class StoryLoader extends RESTLoader {
         messageArray = response.getJSONArray(getNameStoryMessages());
 
         for (int i = 0; i < messageArray.length(); i++) {
+            Message resultMessage = new Message();
             message = messageArray.getJSONArray(i);
-            messages.add(new LinkedList<String>());
 
             for (int j = 0; j < message.length(); j++) {
-                messages.get(i).add(message.getString(j));
+                if(i == 0){
+                    sender.add(message.getString(j));
+                }else{
+                    String messageAsString = message.getString(j);
+
+                    if(messageAsString != null && messageAsString.isEmpty() == false){
+                        resultMessage.setText(messageAsString);
+                        resultMessage.setSender(sender.get(j));
+                        resultMessage.setLeft(j == 0);
+
+                        messages.add(resultMessage);
+                    }
+                }
             }
         }
 
